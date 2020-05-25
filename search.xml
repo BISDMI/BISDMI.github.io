@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>.NET Core 初识</title>
+    <url>/2020/05/22/NetCore/</url>
+    <content><![CDATA[<hr>
+<blockquote style="padding: 0 15px;color: #666;border-left: 4px solid #ddd;">
+默认主机构建器,主机负载应用的启动和生存期管理、配置服务
+器和请求处理管道,默认设置日志记录、依赖关系的注入和配置,主机是一个封装了应用资源的对m.NET Ext
+ensions的源码(.NET Core 扩展包、日志)象 .NET Core(.Net.核心API)里的一个类(Host)!!
+</blockquote>
+<a id="more"></a>
+]]></content>
+      <categories>
+        <category>.NET Core</category>
+      </categories>
+      <tags>
+        <tag>.NET Core</tag>
+      </tags>
+  </entry>
+</search>
