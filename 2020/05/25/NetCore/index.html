@@ -91,11 +91,11 @@
 <meta name="description" content="默认主机构建器,主机负载应用的启动和生存期管理、配置服务 器和请求处理管道,默认设置日志记录、依赖关系的注入和配置,主机是一个封装了应用资源的对m.NET Ext ensions的源码(.NET Core 扩展包、日志)象 .NET Core(.Net.核心API)里的一个类(Host)!!">
 <meta property="og:type" content="article">
 <meta property="og:title" content=".NET Core 初识">
-<meta property="og:url" content="http://yoursite.com/2020/05/22/NetCore/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/05/25/NetCore/index.html">
 <meta property="og:site_name" content="SDMI">
 <meta property="og:description" content="默认主机构建器,主机负载应用的启动和生存期管理、配置服务 器和请求处理管道,默认设置日志记录、依赖关系的注入和配置,主机是一个封装了应用资源的对m.NET Ext ensions的源码(.NET Core 扩展包、日志)象 .NET Core(.Net.核心API)里的一个类(Host)!!">
-<meta property="article:published_time" content="2020-05-22T06:26:42.228Z">
-<meta property="article:modified_time" content="2020-05-25T03:59:09.521Z">
+<meta property="article:published_time" content="2020-05-25T07:16:56.290Z">
+<meta property="article:modified_time" content="2020-05-26T02:25:51.754Z">
 <meta property="article:author" content="李宝">
 <meta property="article:tag" content=".NET Core">
 <meta name="twitter:card" content="summary">
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/22/NetCore/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/25/NetCore/"/>
 
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/22/NetCore/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/25/NetCore/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="李宝">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-22T14:26:42+08:00">
-                2020-05-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-25T15:16:56+08:00">
+                2020-05-25
               </time>
             
 
@@ -371,6 +371,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/25/NetCore/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/25/NetCore/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -494,7 +504,7 @@ ensions的源码(.NET Core 扩展包、日志)象 .NET Core(.Net.核心API)里�
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/05/22/NetCore/" title=".NET Core 初识">http://yoursite.com/2020/05/22/NetCore/</a>
+    <a href="http://yoursite.com/2020/05/25/NetCore/" title=".NET Core 初识">http://yoursite.com/2020/05/25/NetCore/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -543,6 +553,9 @@ ensions的源码(.NET Core 扩展包、日志)象 .NET Core(.Net.核心API)里�
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -873,6 +886,28 @@ ensions的源码(.NET Core 扩展包、日志)象 .NET Core(.Net.核心API)里�
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'kKwCSVqTTMnkOKsccFjXvikv-gzGzoHsz',
+        appKey: 'za397LFqnsub93tjIOkwWsu0',
+        placeholder: '欢迎指点',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
