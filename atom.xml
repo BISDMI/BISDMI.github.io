@@ -5,9 +5,9 @@
   <subtitle>记录生活中的点点滴滴</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://www.sdmi.top/"/>
   <updated>2020-05-26T02:25:51.754Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://www.sdmi.top/</id>
   
   <author>
     <name>李宝</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>.NET Core 初识</title>
-    <link href="http://yoursite.com/2020/05/25/NetCore/"/>
-    <id>http://yoursite.com/2020/05/25/NetCore/</id>
+    <link href="http://www.sdmi.top/2020/05/25/NetCore/"/>
+    <id>http://www.sdmi.top/2020/05/25/NetCore/</id>
     <published>2020-05-25T07:16:56.290Z</published>
     <updated>2020-05-26T02:25:51.754Z</updated>
     
@@ -37,10 +37,10 @@ ensions的源码(.NET Core 扩展包、日志)象 .NET Core(.Net.核心API)里�
     </summary>
     
     
-      <category term=".NET Core" scheme="http://yoursite.com/categories/NET-Core/"/>
+      <category term=".NET Core" scheme="http://www.sdmi.top/categories/NET-Core/"/>
     
     
-      <category term=".NET Core" scheme="http://yoursite.com/tags/NET-Core/"/>
+      <category term=".NET Core" scheme="http://www.sdmi.top/tags/NET-Core/"/>
     
   </entry>
   
