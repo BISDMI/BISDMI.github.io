@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.sdmi.top/"/>
-  <updated>2020-05-26T09:06:56.199Z</updated>
+  <updated>2020-05-27T03:17:28.280Z</updated>
   <id>http://www.sdmi.top/</id>
   
   <author>
@@ -17,19 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>初识 .NET Core</title>
+    <title>ICO容器-依赖注入</title>
+    <link href="http://www.sdmi.top/2020/05/27/Dependency/"/>
+    <id>http://www.sdmi.top/2020/05/27/Dependency/</id>
+    <published>2020-05-27T02:54:38.421Z</published>
+    <updated>2020-05-27T03:17:28.280Z</updated>
+    
+    <content type="html"><![CDATA[<hr><h1>ICO容器</h1><blockquote>.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>.Net Core采用包化的管理方式，增加轻量性。<br></blockquote><a id="more"></a><h1>依赖注入</h1><blockquote>现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>Program:被称谓主机配置和创建类!<br>Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h1&gt;ICO容器&lt;/h1&gt;
+&lt;blockquote&gt;
+.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。&lt;br&gt;
+.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。&lt;br&gt;
+.Net Core采用包化的管理方式，增加轻量性。&lt;br&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="ICO容器" scheme="http://www.sdmi.top/categories/ICO%E5%AE%B9%E5%99%A8/"/>
+    
+    
+      <category term="ICO容器" scheme="http://www.sdmi.top/tags/ICO%E5%AE%B9%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>.NET Core</title>
     <link href="http://www.sdmi.top/2020/05/25/NetCore/"/>
     <id>http://www.sdmi.top/2020/05/25/NetCore/</id>
     <published>2020-05-25T07:16:56.290Z</published>
-    <updated>2020-05-26T09:06:56.199Z</updated>
+    <updated>2020-05-27T02:55:37.955Z</updated>
     
-    <content type="html"><![CDATA[<hr><h1>初识.NET Core</h1><blockquote style="padding: 0 15px;color: #666;border-left: 4px solid #ddd;">.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>.Net Core采用包化的管理方式，增加轻量性。<br></blockquote><a id="more"></a><h1>ASP.NET Core启动类</h1><blockquote style="padding: 0 15px;color: #666;border-left: 4px solid #ddd;">现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>Program:被称谓主机配置和创建类!<br>Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br></blockquote><pre><code>//主机配置和创建类public class Program{     //程序入口    public static void Main(string[] args)    {        //CreateHostBuilder是配置主机        //Build是创建主机 (.Net Core源码在这里执行了一组委托(创建主机))        //Run运行主机        CreateHostBuilder(args).Build().Run();    }    //这里为小白补充一下,什么是主机,用来干嘛的    //(主机:负责应用的启动类和生存期管理,配置服务器和请求处理管道,默认设置日志记录,依赖关系的注入和///配置,主机是一个封装了应用资源的对象,.Net Core里的一个类(Host))    //配置主机(.Net Core有两种主机,泛型,通用的主机)    public static IHostBuilder CreateHostBuilder(string[] args) =&gt;      //Host 主机静态类里面有一个CreateDefaultBuilder方法,是一个默认的创建主机构建器!      //ConfigureWebHostDefaults:Web主机(他是通用主机的扩展,他提供额外Web功能,支持Http,集成了//////Kestrel,内置了IIS集成)      Host.CreateDefaultBuilder(args)          .ConfigureWebHostDefaults(webBuilder =&gt;          {              //指定ASP.NET Core应用启动类(今天先写到这里,明天继续)              webBuilder.UseStartup&lt;Startup&gt;();          });}</code></pre><p>[加油,希望能为看的人,带来收获!]</p><pre><code>//ASP.NET Core Web应用的启动类public class Startup {     //什么时候执行配置服务,在程序执行完Build()之后,运行主机以前执行配置服务!     //配置服务     //ConfigureServices以依赖注入的方式将服务添加到服务(IOC)容器     public void ConfigureServices(IServiceCollection services)     {          //Asp.NET Core内置的服务组件          //添加对控制器和APi相关功能的支持,但是不支持视图和页面(Web Api的模板使用)          services.AddControllers();          //MVC的默认模板使用的          services.AddControllersWithViews();          //Web应用程序(Razor)          services.AddRazorPages();          //这个MVC他是3.0之前的版本,2.x版本使用的          services.AddMvc();           //以上的都是内置的,也可以添加第三方的服务,方法一致,这里将不过多描述了.          //服务的生存周期          //请求一个实例(是有生存周期,生存期)          //三种:          //  瞬死:A类控制器依赖B类服务,也给实例出来,如果B类是瞬死的,那梅一次都会生成一个新的实例          //  作用域:每一次有客户请求时,的实例只会请求一次,在这次的请求中,后面的操作还需要这个B类实//例,他不会在创建了,把之前的拿过来直接用.          //  单例:整个应用的生命周期，只要是向服务容器请求示例，第一次才会创建，之后都是使用这个。          //注册服务的使用方式,可以采用构造函数注入的方式使用.     }     //配置管道     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)     {          //如果想知道怎么添加中间件的,什么是终端中间件,怎么自定义中间件,中间件的顺序是怎么样的          //可以加群,有学习文档.或者问群主:群号:782237863          //判断是否是开发环境          if (env.IsDevelopment())          {               //开发人员异常页面中间件,如果有异常,他会吧异常页面显示出来,且界面友好.               app.UseDeveloperExceptionPage();          }          //终端路由中间件          //识别路由，匹配路由和终结点          app.UseRouting();          //终结点中间件,配置路由和终结点之间的映射关系的          //终结点:可以视为应用程序提供针对HTTP请求的处理器          //MVC应用，终结点就对应着控制器中的某个方法          app.UseEndpoints(endpoints =&gt;          {               //配置               endpoints.MapGet(&quot;/&quot;, async context =&gt;               {                  await context.Response.WriteAsync(&quot;Hello World!&quot;);               });          });      }}</code></pre><p>人生要学会储蓄。你若耕耘，就储存了一次丰收；你若努力，就储存了一个希望；你若微笑，就储存了一份快乐。你能支取什么，取决于你储蓄了什么。没有储存友谊，就无法支取帮助；没有储存学识，就无法支取能力；没有储存汗水，就无法支取成长。想要取之不尽的幸福，要储蓄感恩和付出。晚安！</p>]]></content>
+    <content type="html"><![CDATA[<hr><h1>初识.NET Core</h1><blockquote>.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>.Net Core采用包化的管理方式，增加轻量性。<br></blockquote><a id="more"></a><h1>ASP.NET Core启动类</h1><blockquote>现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>Program:被称谓主机配置和创建类!<br>Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br></blockquote><pre><code>//主机配置和创建类public class Program{     //程序入口    public static void Main(string[] args)    {        //CreateHostBuilder是配置主机        //Build是创建主机 (.Net Core源码在这里执行了一组委托(创建主机))        //Run运行主机        CreateHostBuilder(args).Build().Run();    }    //这里为小白补充一下,什么是主机,用来干嘛的    //(主机:负责应用的启动类和生存期管理,配置服务器和请求处理管道,默认设置日志记录,依赖关系的注入和///配置,主机是一个封装了应用资源的对象,.Net Core里的一个类(Host))    //配置主机(.Net Core有两种主机,泛型,通用的主机)    public static IHostBuilder CreateHostBuilder(string[] args) =&gt;      //Host 主机静态类里面有一个CreateDefaultBuilder方法,是一个默认的创建主机构建器!      //ConfigureWebHostDefaults:Web主机(他是通用主机的扩展,他提供额外Web功能,支持Http,集成了//////Kestrel,内置了IIS集成)      Host.CreateDefaultBuilder(args)          .ConfigureWebHostDefaults(webBuilder =&gt;          {              //指定ASP.NET Core应用启动类(今天先写到这里,明天继续)              webBuilder.UseStartup&lt;Startup&gt;();          });}</code></pre><p>[加油,希望能为看的人,带来收获!]</p><pre><code>//ASP.NET Core Web应用的启动类public class Startup {     //什么时候执行配置服务,在程序执行完Build()之后,运行主机以前执行配置服务!     //配置服务     //ConfigureServices以依赖注入的方式将服务添加到服务(IOC)容器     public void ConfigureServices(IServiceCollection services)     {          //Asp.NET Core内置的服务组件          //添加对控制器和APi相关功能的支持,但是不支持视图和页面(Web Api的模板使用)          services.AddControllers();          //MVC的默认模板使用的          services.AddControllersWithViews();          //Web应用程序(Razor)          services.AddRazorPages();          //这个MVC他是3.0之前的版本,2.x版本使用的          services.AddMvc();           //以上的都是内置的,也可以添加第三方的服务,方法一致,这里将不过多描述了.          //服务的生存周期          //请求一个实例(是有生存周期,生存期)          //三种:          //  瞬死:A类控制器依赖B类服务,也给实例出来,如果B类是瞬死的,那梅一次都会生成一个新的实例          //  作用域:每一次有客户请求时,的实例只会请求一次,在这次的请求中,后面的操作还需要这个B类实//例,他不会在创建了,把之前的拿过来直接用.          //  单例:整个应用的生命周期，只要是向服务容器请求示例，第一次才会创建，之后都是使用这个。          //注册服务的使用方式,可以采用构造函数注入的方式使用.     }     //配置管道     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)     {          //如果想知道怎么添加中间件的,什么是终端中间件,怎么自定义中间件,中间件的顺序是怎么样的          //可以加群,有学习文档.或者问群主:群号:782237863          //判断是否是开发环境          if (env.IsDevelopment())          {               //开发人员异常页面中间件,如果有异常,他会吧异常页面显示出来,且界面友好.               app.UseDeveloperExceptionPage();          }          //终端路由中间件          //识别路由，匹配路由和终结点          app.UseRouting();          //终结点中间件,配置路由和终结点之间的映射关系的          //终结点:可以视为应用程序提供针对HTTP请求的处理器          //MVC应用，终结点就对应着控制器中的某个方法          app.UseEndpoints(endpoints =&gt;          {               //配置               endpoints.MapGet(&quot;/&quot;, async context =&gt;               {                  await context.Response.WriteAsync(&quot;Hello World!&quot;);               });          });      }}</code></pre><p>人生要学会储蓄。你若耕耘，就储存了一次丰收；你若努力，就储存了一个希望；你若微笑，就储存了一份快乐。你能支取什么，取决于你储蓄了什么。没有储存友谊，就无法支取帮助；没有储存学识，就无法支取能力；没有储存汗水，就无法支取成长。想要取之不尽的幸福，要储蓄感恩和付出。晚安！</p>]]></content>
     
     <summary type="html">
     
       &lt;hr&gt;
 &lt;h1&gt;初识.NET Core&lt;/h1&gt;
-&lt;blockquote style=&quot;padding: 0 15px;color: #666;border-left: 4px solid #ddd;&quot;&gt;
+&lt;blockquote&gt;
 .Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。&lt;br&gt;
 .Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。&lt;br&gt;
 .Net Core采用包化的管理方式，增加轻量性。&lt;br&gt;
