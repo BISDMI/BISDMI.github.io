@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ICO容器-依赖注入</title>
+    <url>/2020/05/27/Dependency/</url>
+    <content><![CDATA[<hr>
+<h1>ICO容器</h1>
+<blockquote>
+.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>
+.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>
+.Net Core采用包化的管理方式，增加轻量性。<br>
+</blockquote>
+<a id="more"></a>
+<h1>依赖注入</h1>
+<blockquote>
+现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>
+Program:被称谓主机配置和创建类!<br>
+Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br>
+</blockquote>
+
+
+
+
+]]></content>
+      <categories>
+        <category>ICO容器</category>
+      </categories>
+      <tags>
+        <tag>ICO容器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>.NET Core</title>
     <url>/2020/05/25/NetCore/</url>
     <content><![CDATA[<hr>
@@ -107,35 +136,6 @@ public class Startup
       </categories>
       <tags>
         <tag>.NET Core</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ICO容器-依赖注入</title>
-    <url>/2020/05/27/Dependency/</url>
-    <content><![CDATA[<hr>
-<h1>ICO容器</h1>
-<blockquote>
-.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>
-.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>
-.Net Core采用包化的管理方式，增加轻量性。<br>
-</blockquote>
-<a id="more"></a>
-<h1>依赖注入</h1>
-<blockquote>
-现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>
-Program:被称谓主机配置和创建类!<br>
-Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br>
-</blockquote>
-
-
-
-
-]]></content>
-      <categories>
-        <category>ICO容器</category>
-      </categories>
-      <tags>
-        <tag>ICO容器</tag>
       </tags>
   </entry>
 </search>
