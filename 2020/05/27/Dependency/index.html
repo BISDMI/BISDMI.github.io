@@ -88,14 +88,14 @@
 
 
 
-<meta name="description" content="ICO容器  .Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。 .Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。 .Net Core采用包化的管理方式，增加轻量性。">
+<meta name="description" content="IOC容器  IOC是一种编程思想,不局限与任何一种语言,任何语言都可以实现这种思想，它的设计思想是想把创建对象，管理对象生命周期，程序集之间的解耦的工作交给第三方容器来处理。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ICO容器-依赖注入">
 <meta property="og:url" content="https://www.sdmi.top/2020/05/27/Dependency/index.html">
 <meta property="og:site_name" content="SDMI">
-<meta property="og:description" content="ICO容器  .Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。 .Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。 .Net Core采用包化的管理方式，增加轻量性。">
+<meta property="og:description" content="IOC容器  IOC是一种编程思想,不局限与任何一种语言,任何语言都可以实现这种思想，它的设计思想是想把创建对象，管理对象生命周期，程序集之间的解耦的工作交给第三方容器来处理。">
 <meta property="article:published_time" content="2020-05-27T02:54:38.421Z">
-<meta property="article:modified_time" content="2020-05-27T03:17:28.280Z">
+<meta property="article:modified_time" content="2020-05-28T08:07:01.964Z">
 <meta property="article:author" content="李宝">
 <meta property="article:tag" content="ICO容器">
 <meta name="twitter:card" content="summary">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  156
+                  493
                 </span>
               
 
@@ -440,23 +440,31 @@
 
       
         <hr>
-<h1>ICO容器</h1>
+<h1>IOC容器</h1>
 <blockquote>
-.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>
-.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>
-.Net Core采用包化的管理方式，增加轻量性。<br>
-</blockquote>
+IOC是一种编程思想,不局限与任何一种语言,任何语言都可以实现这种思想，它的设计思想是想把创建对象，管理对象生命周期，程序集之间的解耦的工作交给第三方容器来处理。<br>
 <a id="more"></a>
+IOC作用:
+
+<pre><code>1.注册类型,服务注册，将服务（类）以依赖注入的方式，添加到容器里,就是服务注册！
+2.解析实例,比如我们注册了一个A类实例，这个时候我们不需要new了，直接从容器里面请求这个实例</code></pre></blockquote>
 <h1>依赖注入</h1>
 <blockquote>
-现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>
-Program:被称谓主机配置和创建类!<br>
-Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br>
-</blockquote>
+我将会以讲故事的形式，给大家来介绍依赖注入和IOC容器。<br>
+故事:假设我家的小宝出生了，这个时候饿了，肯定需要吃东西，对嘛，<br>
 
+<pre><code>你会怎么办了？
+1.叫外卖、去厨房找吃的、冰箱、冲牛奶  （主动）
+2.叫妈妈、叫奶奶 （被动）</code></pre></blockquote>
+<h3>解析:</h3>
 
+<pre><code>这个时候饿了，肯定的情况下，需要食物对嘛？
+1.方案1:我们主动获取食物，是有风险的。(比如并不知道哪些东西能吃的,不符合常理)(主动获取,我们称谓正转)
+2.方案2:被动获取，食物是抽象的，父母给你的，决定安全，且适合你的(被动获取的,我们称谓反转,反转是食物的控制权)</code></pre><h3>说明:</h3>
 
-
+<pre><code>食物是小宝所依赖的,也是抽象的,把所依赖的对象，反转了，就是控制反转(IOC)。
+食物妈妈做好以后给你，或者喂给你，这个时候就是注入了。
+妈妈就扮演者IOC容器的角色。</code></pre><p>没人在乎你怎样在深夜痛哭，也没人在乎你辗转反侧的要熬几个秋。外人只看结果，自己独撑过程。等我们都明白了这个道理，便不会再在人前矫情，四处诉说以求宽慰。晚安！</p>
 
       
     </div>
@@ -713,7 +721,7 @@ Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">ICO容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">依赖注入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">IOC容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.0.1.</span> <span class="nav-text">解析:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">2.0.2.</span> <span class="nav-text">说明:</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -757,7 +765,7 @@ Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述�
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共1.3k字</span>
+  <span class="post-count">博客全站共1.6k字</span>
 </div>
         
 <div class="busuanzi-count">
