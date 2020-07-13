@@ -38,86 +38,6 @@ IOC作用:
       </tags>
   </entry>
   <entry>
-    <title>面向对象六大原则</title>
-    <url>/2020/07/13/SixPrinciples/</url>
-    <content><![CDATA[<hr>
-<h1>面向对象的六大原则</h1>
-<blockquote>
-面向对象的六大原则，就是让我们设计程序带入OOP思想，目标:让程序高扩展、高可维护、高性能。<br>
-</blockquote>
-<a id="more"></a>
-<h1>单一职责(SRP)</h1>
-<blockquote>
-概念:一个类只负责一个功能领域中相关的职责实现。也就是不能设计万能类。<br>
-PS:工具类型的软件需要涉及的类(UI、实体类、业务类)数控库应用系统(UI、实体类、业务类、数据
-    访问类、工具类)<br>
-UI:属于边界类：主要是用来收集用户操作数据，或者展示数据给用户，他不应该有具体的，
-               或者更多业务参与，更不能有其他的任务。<br>
-实例：三层架构设计理论基础，也是对象职责明确原则(单一职责)<br>
-好处：各个类各负其责！好处，当一个类的修改变化，不会影响到整个的程序。<br>
-</blockquote>
-
-<h1>里氏替换原则(LSP)</h1>
-<blockquote>
-概念:子类必须能够替换掉它的父类类型，反之不行。<br>
-PS:里氏替换原则是实现开闭原则的重要方式之一<br>
-UI:提醒大家，以后变成尽量针对"基类"、"父类"、“编程”！换句话是，针对"接口"编程。<br>
-实例：人，可以被男人、女人替换的。父类 变量=子类对象 
-好处：子类可以替换父类，不仅原有的父类功能不受影响，而且还能扩展自己的新的行为。<br>
-</blockquote>
-
-<h1>迪米特法则(Lod)</h1>
-<blockquote>
-概念:也叫最小化原则。当两个类之间直接通信的时候，会导致"高度"依赖（高耦合）
-          为了解决这个问题，我们应该尽量的避免这两个类直接“接触”(低耦合),可以通过一个第三者做转发。<br>
-PS:A->B->C<br>
-UI:迪米特法则根本思想就是让类之间解耦，实现是松耦合，达到更多的复用，一个类的修改不影响其他类。<br>
-实例：用户--->公司客服系统--->售后服务 如果你去找销售员，就是直接耦合！
-好处：封装思想，尽量降低成员的方权限，而不是全部public。一个类依赖的员一个类的实现越少越好！<br>
-</blockquote>
-
-<h1>开闭原则(OCP)</h1>
-<blockquote>
-概念: 封闭修改，开放扩展。当需求变化的时候，我们尽量扩展对象，而不是修改原有对象。<br>
-</blockquote>
-
-<h1>依赖倒置原则(DIP)</h1>
-<blockquote>
-概念: 抽象不应该依赖于细节，细节应该依赖于抽象。<br>
-PS:抽象不应该依赖于细节理解:生产主板的时候，是不用考虑那个厂家的"模块"。
-                 细节应该依赖于抽象的理解:生产各个模块的时候，必须遵循主板的接口！<br>
-UI:面向抽象编程就是说的DIP<br>
-实例：电脑主板，各个模块，都是按照主板接口来实现的，谁是抽象部分？主板各种插槽。
-                    细节:内存条，硬盘，独立显卡
-</blockquote>
-
-
-<h1>接口隔离原则(ISP)</h1>
-<blockquote>
-概念: 一个对象和另一个对象交互，所依赖的内容减少到最小，也就是说一个接口类设计必须严格遵循"单一职责"。
-                 不要设计万能接口，也不要设计过多接口，换句话说不能让接口泛滥。<br>
-PS:拆分多少合适？依靠大家的经验<br>
-实例：通过接口隔离，我们单独增加了接口类，方法也做了相应的扩展(实现自由组装，灵活方便)
-                  (非常类似于:数据库中的二范式或三范式!)
-</blockquote>
-
-<h1>总结</h1>
-<blockquote>
-1.单一职责:对象职责单一化
-2.开闭原则:对象修改最小化
-3.里氏替换原则:程序扩展具体方法
-4.迪米特法则:高内聚低耦合
-5.依赖倒置原则:不应该依赖于细节，依赖于抽象。
-6.接口隔离原则:接口设计要适中。
-</blockquote>]]></content>
-      <categories>
-        <category>面向对象六大原则</category>
-      </categories>
-      <tags>
-        <tag>面向对象六大原则</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>.NET Core</title>
     <url>/2020/05/25/NetCore/</url>
     <content><![CDATA[<hr>
@@ -265,6 +185,210 @@ OOD设计思想:面向对象的编程/实现<br>
       </categories>
       <tags>
         <tag>OOA、OOD、OOP设计思想</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>对象之间六大关系</title>
+    <url>/2020/07/13/ObjectRelation/</url>
+    <content><![CDATA[<hr>
+<h1>对象之间六大关系</h1>
+<blockquote>
+对象之间的关系
+   【1】纵向: （树形）继承-->实现 (父类--子类)  接口--->实现
+   【2】横向:  (平行)  由弱到强的关系：依赖-->关联-->聚合-->组合（关系链是我们研究的重点）
+</blockquote>
+<a id="more"></a>
+<h1>依赖关系-Dependence</h1>
+<blockquote>
+关系特点:一个类中,"使用"到了另一个类，这种"使用"是临时的,较弱的关系<br>
+典型应用:一个类作为另一个类中方法的参数,或者这个方法的局部变量<br>
+</blockquote>
+
+<p>   public class ClassA<br>    {<br>        public void Mothod1(ClassB cb)<br>        {<br>            cb.Test();<br>        }<br>        public void Mothod2()<br>        {<br>            ClassB cb = new ClassB();<br>            cb.Test();<br>        }<br>    }<br>    public class ClassB<br>    {<br>        public void Test() { }<br>    }</p>
+<h1>关联关系-Association</h1>
+<blockquote>
+举例:比如客户和订单之间就是一种关联关系。一个对象和另一个对象是有关联的,但是这种关系是客观的关系，而非组成关系。<br>
+关系特点:一个类A中,"使用"到了另一个类B,这种"使用"是长期的,较强的关系。<br>
+典型应用:一个类作为另一个类中"成员"。可以是一对一,一对多,(集合对象)<br>
+组合形式:单向,双向,自关联<br>
+</blockquote>
+
+<pre><code>public class ClassA
+{
+    public ClassB classB;
+}
+
+public class ClassB
+{
+    private List&lt;ClassA&gt; caList;
+    public void Test() { }
+}
+//自关联
+public class ClassC
+{
+    private ClassC classC;
+}</code></pre><h1>聚合关系-Aggregation是关联关系的一种特例</h1>
+<blockquote>
+举例:汽车和发动机？轮胎？/ 电脑和键盘？鼠标....整体与局部的关系<br>
+关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！整体和部分可以分开。<br>
+典型应用:一个对象作为另一个类的《成员》<br>
+组合形式:通过构造方法或者普通方法为成员赋值,对象是从外面创建的,然后传递进来。<br>
+</blockquote>
+
+<pre><code>//电脑 整体
+public class ClassA
+{
+    public ClassB _classB;
+
+    public ClassA()
+    {
+
+    }
+
+    public ClassA(ClassB classB)
+    {
+        this._classB = classB;
+    }
+
+    public void SetKeyboard(ClassB classB)
+    {
+        this._classB = classB;
+    }
+}
+//键盘/鼠标 部分
+public class ClassB
+{
+    //敲打
+    public void Clike() { }
+}
+//使用
+public class TestClass 
+{
+    private  ClassA classA = new ClassA();
+
+    private ClassA classA1 = new ClassA(new ClassB());
+    public void Test() 
+    {
+        classA.SetKeyboard(new ClassB());
+    }
+}</code></pre><h1>组合关系-Compostion</h1>
+<blockquote>
+举例:我和我媳妇<br>
+关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！"只不过"整体和部分不可以分开。并且整体和部分共生死。<br>
+典型应用:一个对象作为另一个类的《成员》<br>
+组合形式:通过构造方法"内"或者普通方法"内"直接创建,对象是从内部创建的,不用传递,这点是区别与聚合。<br>
+</blockquote>
+
+<pre><code>//手
+public class Person
+{
+    public Hand hand;
+
+    public Person()
+    {
+        this.hand = new Hand();//代表人出生就有手啊。
+    }
+
+}
+//手
+public class Hand
+{
+    //扣腚
+    public void Coding() { }
+}</code></pre><h1>总结</h1>
+<blockquote>
+   【1】依赖:可以使用你，偶然的，用完就丢。<br>
+   【2】关联:需要使用你，长期的，甩不掉。<br>
+   【3】聚合:团队的成员，大家关系比较紧密，但是并不是非你不可。<br>
+   【4】组合:我们是一家，关系非常紧密，谁也不能缺少。<br>
+</blockquote>
+
+]]></content>
+      <categories>
+        <category>对象之间六大关系</category>
+      </categories>
+      <tags>
+        <tag>对象之间六大关系</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面向对象六大原则</title>
+    <url>/2020/07/13/SixPrinciples/</url>
+    <content><![CDATA[<hr>
+<h1>面向对象的六大原则</h1>
+<blockquote>
+面向对象的六大原则，就是让我们设计程序带入OOP思想，目标:让程序高扩展、高可维护、高性能。<br>
+</blockquote>
+<a id="more"></a>
+<h1>单一职责(SRP)</h1>
+<blockquote>
+概念:一个类只负责一个功能领域中相关的职责实现。也就是不能设计万能类。<br>
+PS:工具类型的软件需要涉及的类(UI、实体类、业务类)数控库应用系统(UI、实体类、业务类、数据
+    访问类、工具类)<br>
+UI:属于边界类：主要是用来收集用户操作数据，或者展示数据给用户，他不应该有具体的，
+               或者更多业务参与，更不能有其他的任务。<br>
+实例：三层架构设计理论基础，也是对象职责明确原则(单一职责)<br>
+好处：各个类各负其责！好处，当一个类的修改变化，不会影响到整个的程序。<br>
+</blockquote>
+
+<h1>里氏替换原则(LSP)</h1>
+<blockquote>
+概念:子类必须能够替换掉它的父类类型，反之不行。<br>
+PS:里氏替换原则是实现开闭原则的重要方式之一<br>
+UI:提醒大家，以后变成尽量针对"基类"、"父类"、“编程”！换句话是，针对"接口"编程。<br>
+实例：人，可以被男人、女人替换的。父类 变量=子类对象 
+好处：子类可以替换父类，不仅原有的父类功能不受影响，而且还能扩展自己的新的行为。<br>
+</blockquote>
+
+<h1>迪米特法则(Lod)</h1>
+<blockquote>
+概念:也叫最小化原则。当两个类之间直接通信的时候，会导致"高度"依赖（高耦合）
+          为了解决这个问题，我们应该尽量的避免这两个类直接“接触”(低耦合),可以通过一个第三者做转发。<br>
+PS:A->B->C<br>
+UI:迪米特法则根本思想就是让类之间解耦，实现是松耦合，达到更多的复用，一个类的修改不影响其他类。<br>
+实例：用户--->公司客服系统--->售后服务 如果你去找销售员，就是直接耦合！
+好处：封装思想，尽量降低成员的方权限，而不是全部public。一个类依赖的员一个类的实现越少越好！<br>
+</blockquote>
+
+<h1>开闭原则(OCP)</h1>
+<blockquote>
+概念: 封闭修改，开放扩展。当需求变化的时候，我们尽量扩展对象，而不是修改原有对象。<br>
+</blockquote>
+
+<h1>依赖倒置原则(DIP)</h1>
+<blockquote>
+概念: 抽象不应该依赖于细节，细节应该依赖于抽象。<br>
+PS:抽象不应该依赖于细节理解:生产主板的时候，是不用考虑那个厂家的"模块"。
+                 细节应该依赖于抽象的理解:生产各个模块的时候，必须遵循主板的接口！<br>
+UI:面向抽象编程就是说的DIP<br>
+实例：电脑主板，各个模块，都是按照主板接口来实现的，谁是抽象部分？主板各种插槽。
+                    细节:内存条，硬盘，独立显卡
+</blockquote>
+
+
+<h1>接口隔离原则(ISP)</h1>
+<blockquote>
+概念: 一个对象和另一个对象交互，所依赖的内容减少到最小，也就是说一个接口类设计必须严格遵循"单一职责"。
+                 不要设计万能接口，也不要设计过多接口，换句话说不能让接口泛滥。<br>
+PS:拆分多少合适？依靠大家的经验<br>
+实例：通过接口隔离，我们单独增加了接口类，方法也做了相应的扩展(实现自由组装，灵活方便)
+                  (非常类似于:数据库中的二范式或三范式!)
+</blockquote>
+
+<h1>总结</h1>
+<blockquote>
+1.单一职责:对象职责单一化
+2.开闭原则:对象修改最小化
+3.里氏替换原则:程序扩展具体方法
+4.迪米特法则:高内聚低耦合
+5.依赖倒置原则:不应该依赖于细节，依赖于抽象。
+6.接口隔离原则:接口设计要适中。
+</blockquote>]]></content>
+      <categories>
+        <category>面向对象六大原则</category>
+      </categories>
+      <tags>
+        <tag>面向对象六大原则</tag>
       </tags>
   </entry>
 </search>
