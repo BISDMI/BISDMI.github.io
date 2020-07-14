@@ -88,14 +88,14 @@
 
 
 
-<meta name="description" content="对象之间六大关系  对象之间的关系    【1】纵向: （树形）继承--&gt;实现 (父类--子类)  接口---&gt;实现    【2】横向:  (平行)  由弱到强的关系：依赖--&gt;关联--&gt;聚合--&gt;组合（关系链是我们研究的重点）">
+<meta name="description" content="对象之间六大关系  对象之间的关系    【1】纵向: （树形）继承--&gt;实现 (父类--子类)  接口---&gt;实现    【2】横向:  (平行)  由弱到强的关系：依赖--&gt;关联--&gt;聚合--&gt;组合--&gt;继承(泛型)--&gt;实现（关系链是我们研究的重点）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="对象之间六大关系">
 <meta property="og:url" content="https://www.sdmi.top/2020/07/13/ObjectRelation/index.html">
 <meta property="og:site_name" content="SDMI">
-<meta property="og:description" content="对象之间六大关系  对象之间的关系    【1】纵向: （树形）继承--&gt;实现 (父类--子类)  接口---&gt;实现    【2】横向:  (平行)  由弱到强的关系：依赖--&gt;关联--&gt;聚合--&gt;组合（关系链是我们研究的重点）">
+<meta property="og:description" content="对象之间六大关系  对象之间的关系    【1】纵向: （树形）继承--&gt;实现 (父类--子类)  接口---&gt;实现    【2】横向:  (平行)  由弱到强的关系：依赖--&gt;关联--&gt;聚合--&gt;组合--&gt;继承(泛型)--&gt;实现（关系链是我们研究的重点）">
 <meta property="article:published_time" content="2020-07-13T08:52:17.067Z">
-<meta property="article:modified_time" content="2020-07-13T09:01:35.749Z">
+<meta property="article:modified_time" content="2020-07-14T05:51:46.357Z">
 <meta property="article:author" content="李宝">
 <meta property="article:tag" content="对象之间六大关系">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,6 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
   
   
     
@@ -402,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  746
+                  821
                 </span>
               
 
@@ -418,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -444,7 +443,7 @@
 <blockquote>
 对象之间的关系
    【1】纵向: （树形）继承-->实现 (父类--子类)  接口--->实现
-   【2】横向:  (平行)  由弱到强的关系：依赖-->关联-->聚合-->组合（关系链是我们研究的重点）
+   【2】横向:  (平行)  由弱到强的关系：依赖-->关联-->聚合-->组合-->继承(泛型)-->实现（关系链是我们研究的重点）
 </blockquote>
 <a id="more"></a>
 <h1>依赖关系-Dependence</h1>
@@ -453,7 +452,8 @@
 典型应用:一个类作为另一个类中方法的参数,或者这个方法的局部变量<br>
 </blockquote>
 
-<p>   public class ClassA<br>    {<br>        public void Mothod1(ClassB cb)<br>        {<br>            cb.Test();<br>        }<br>        public void Mothod2()<br>        {<br>            ClassB cb = new ClassB();<br>            cb.Test();<br>        }<br>    }<br>    public class ClassB<br>    {<br>        public void Test() { }<br>    }</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class ClassA</span><br><span class="line">&#123;</span><br><span class="line">    public void Mothod1(ClassB cb) </span><br><span class="line">    &#123;</span><br><span class="line">        cb.Test();</span><br><span class="line">    &#125;</span><br><span class="line">    public void Mothod2()</span><br><span class="line">    &#123;</span><br><span class="line">        ClassB cb &#x3D; new ClassB();</span><br><span class="line">        cb.Test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class ClassB</span><br><span class="line">&#123;</span><br><span class="line">    public void Test() &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1>关联关系-Association</h1>
 <blockquote>
 举例:比如客户和订单之间就是一种关联关系。一个对象和另一个对象是有关联的,但是这种关系是客观的关系，而非组成关系。<br>
@@ -462,21 +462,9 @@
 组合形式:单向,双向,自关联<br>
 </blockquote>
 
-<pre><code>public class ClassA
-{
-    public ClassB classB;
-}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class ClassA</span><br><span class="line">&#123;</span><br><span class="line">    public ClassB classB;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class ClassB</span><br><span class="line">&#123;</span><br><span class="line">    private List&lt;ClassA&gt; caList;</span><br><span class="line">    public void Test() &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;自关联</span><br><span class="line">public class ClassC</span><br><span class="line">&#123;</span><br><span class="line">    private ClassC classC;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class ClassB
-{
-    private List&lt;ClassA&gt; caList;
-    public void Test() { }
-}
-//自关联
-public class ClassC
-{
-    private ClassC classC;
-}</code></pre><h1>聚合关系-Aggregation是关联关系的一种特例</h1>
+<h1>聚合关系-Aggregation是关联关系的一种特例</h1>
 <blockquote>
 举例:汽车和发动机？轮胎？/ 电脑和键盘？鼠标....整体与局部的关系<br>
 关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！整体和部分可以分开。<br>
@@ -484,43 +472,9 @@ public class ClassC
 组合形式:通过构造方法或者普通方法为成员赋值,对象是从外面创建的,然后传递进来。<br>
 </blockquote>
 
-<pre><code>//电脑 整体
-public class ClassA
-{
-    public ClassB _classB;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;电脑 整体</span><br><span class="line">public class ClassA</span><br><span class="line">&#123;</span><br><span class="line">    public ClassB _classB;</span><br><span class="line"></span><br><span class="line">    public ClassA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public ClassA(ClassB classB)</span><br><span class="line">    &#123;</span><br><span class="line">        this._classB &#x3D; classB;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void SetKeyboard(ClassB classB)</span><br><span class="line">    &#123;</span><br><span class="line">        this._classB &#x3D; classB;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;键盘&#x2F;鼠标 部分</span><br><span class="line">public class ClassB</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;敲打</span><br><span class="line">    public void Clike() &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;使用</span><br><span class="line">public class TestClass </span><br><span class="line">&#123;</span><br><span class="line">    private  ClassA classA &#x3D; new ClassA();</span><br><span class="line"></span><br><span class="line">    private ClassA classA1 &#x3D; new ClassA(new ClassB());</span><br><span class="line">    public void Test() </span><br><span class="line">    &#123;</span><br><span class="line">        classA.SetKeyboard(new ClassB());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public ClassA()
-    {
-
-    }
-
-    public ClassA(ClassB classB)
-    {
-        this._classB = classB;
-    }
-
-    public void SetKeyboard(ClassB classB)
-    {
-        this._classB = classB;
-    }
-}
-//键盘/鼠标 部分
-public class ClassB
-{
-    //敲打
-    public void Clike() { }
-}
-//使用
-public class TestClass 
-{
-    private  ClassA classA = new ClassA();
-
-    private ClassA classA1 = new ClassA(new ClassB());
-    public void Test() 
-    {
-        classA.SetKeyboard(new ClassB());
-    }
-}</code></pre><h1>组合关系-Compostion</h1>
+<h1>组合关系-Compostion</h1>
 <blockquote>
 举例:我和我媳妇<br>
 关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！"只不过"整体和部分不可以分开。并且整体和部分共生死。<br>
@@ -528,23 +482,9 @@ public class TestClass
 组合形式:通过构造方法"内"或者普通方法"内"直接创建,对象是从内部创建的,不用传递,这点是区别与聚合。<br>
 </blockquote>
 
-<pre><code>//手
-public class Person
-{
-    public Hand hand;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;手</span><br><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    public Hand hand;</span><br><span class="line"></span><br><span class="line">    public Person()</span><br><span class="line">    &#123;</span><br><span class="line">        this.hand &#x3D; new Hand();&#x2F;&#x2F;代表人出生就有手啊。</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;手</span><br><span class="line">public class Hand</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;扣腚</span><br><span class="line">    public void Coding() &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public Person()
-    {
-        this.hand = new Hand();//代表人出生就有手啊。
-    }
-
-}
-//手
-public class Hand
-{
-    //扣腚
-    public void Coding() { }
-}</code></pre><h1>总结</h1>
+<h1>总结</h1>
 <blockquote>
    【1】依赖:可以使用你，偶然的，用完就丢。<br>
    【2】关联:需要使用你，长期的，甩不掉。<br>
@@ -833,7 +773,11 @@ public class Hand
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">李宝</span>
+  <span class="with-love">
+     <img src="/images/110.png">
+  </span>
+  <a href="http://www.beian.miit.gov.cn/" target="_blank" rel="noopener"  style="color:#f72b07;border-bottom: none;">鄂ICP备20007865号</a>
+  
 
   
 </div>
@@ -852,7 +796,7 @@ public class Hand
 </div>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4k字</span>
+  <span class="post-count">博客全站共4.1k字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -1373,6 +1317,9 @@ public class Hand
   
 
   
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/clicklove.js"></script>
 </body>

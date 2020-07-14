@@ -1,40 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ICO容器-依赖注入</title>
-    <url>/2020/05/27/Dependency/</url>
+    <title>对象之间六大关系</title>
+    <url>/2020/07/13/ObjectRelation/</url>
     <content><![CDATA[<hr>
-<h1>IOC容器</h1>
+<h1>对象之间六大关系</h1>
 <blockquote>
-IOC是一种编程思想,不局限与任何一种语言,任何语言都可以实现这种思想，它的设计思想是想把创建对象，管理对象生命周期，程序集之间的解耦的工作交给第三方容器来处理。<br>
+对象之间的关系
+   【1】纵向: （树形）继承-->实现 (父类--子类)  接口--->实现
+   【2】横向:  (平行)  由弱到强的关系：依赖-->关联-->聚合-->组合-->继承(泛型)-->实现（关系链是我们研究的重点）
+</blockquote>
 <a id="more"></a>
-IOC作用:
-
-<pre><code>1.注册类型,服务注册，将服务（类）以依赖注入的方式，添加到容器里,就是服务注册！
-2.解析实例,比如我们注册了一个A类实例，这个时候我们不需要new了，直接从容器里面请求这个实例</code></pre></blockquote>
-<h1>依赖注入</h1>
+<h1>依赖关系-Dependence</h1>
 <blockquote>
-我将会以讲故事的形式，给大家来介绍依赖注入和IOC容器。<br>
-故事:假设我家的小宝出生了，这个时候饿了，肯定需要吃东西，对嘛，<br>
+关系特点:一个类中,"使用"到了另一个类，这种"使用"是临时的,较弱的关系<br>
+典型应用:一个类作为另一个类中方法的参数,或者这个方法的局部变量<br>
+</blockquote>
 
-<pre><code>你会怎么办了？
-1.叫外卖、去厨房找吃的、冰箱、冲牛奶  （主动）
-2.叫妈妈、叫奶奶 （被动）</code></pre></blockquote>
-<h3>解析:</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class ClassA</span><br><span class="line">&#123;</span><br><span class="line">    public void Mothod1(ClassB cb) </span><br><span class="line">    &#123;</span><br><span class="line">        cb.Test();</span><br><span class="line">    &#125;</span><br><span class="line">    public void Mothod2()</span><br><span class="line">    &#123;</span><br><span class="line">        ClassB cb &#x3D; new ClassB();</span><br><span class="line">        cb.Test();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class ClassB</span><br><span class="line">&#123;</span><br><span class="line">    public void Test() &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<pre><code>这个时候饿了，肯定的情况下，需要食物对嘛？
-1.方案1:我们主动获取食物，是有风险的。(比如并不知道哪些东西能吃的,不符合常理)(主动获取,我们称谓正转)
-2.方案2:被动获取，食物是抽象的，父母给你的，决定安全，且适合你的(被动获取的,我们称谓反转,反转是食物的控制权)</code></pre><h3>说明:</h3>
+<h1>关联关系-Association</h1>
+<blockquote>
+举例:比如客户和订单之间就是一种关联关系。一个对象和另一个对象是有关联的,但是这种关系是客观的关系，而非组成关系。<br>
+关系特点:一个类A中,"使用"到了另一个类B,这种"使用"是长期的,较强的关系。<br>
+典型应用:一个类作为另一个类中"成员"。可以是一对一,一对多,(集合对象)<br>
+组合形式:单向,双向,自关联<br>
+</blockquote>
 
-<pre><code>食物是小宝所依赖的,也是抽象的,把所依赖的对象，反转了，就是控制反转(IOC)。
-食物妈妈做好以后给你，或者喂给你，这个时候就是注入了。
-妈妈就扮演者IOC容器的角色。</code></pre><p>没人在乎你怎样在深夜痛哭，也没人在乎你辗转反侧的要熬几个秋。外人只看结果，自己独撑过程。等我们都明白了这个道理，便不会再在人前矫情，四处诉说以求宽慰。晚安！</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class ClassA</span><br><span class="line">&#123;</span><br><span class="line">    public ClassB classB;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class ClassB</span><br><span class="line">&#123;</span><br><span class="line">    private List&lt;ClassA&gt; caList;</span><br><span class="line">    public void Test() &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;自关联</span><br><span class="line">public class ClassC</span><br><span class="line">&#123;</span><br><span class="line">    private ClassC classC;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1>聚合关系-Aggregation是关联关系的一种特例</h1>
+<blockquote>
+举例:汽车和发动机？轮胎？/ 电脑和键盘？鼠标....整体与局部的关系<br>
+关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！整体和部分可以分开。<br>
+典型应用:一个对象作为另一个类的《成员》<br>
+组合形式:通过构造方法或者普通方法为成员赋值,对象是从外面创建的,然后传递进来。<br>
+</blockquote>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;电脑 整体</span><br><span class="line">public class ClassA</span><br><span class="line">&#123;</span><br><span class="line">    public ClassB _classB;</span><br><span class="line"></span><br><span class="line">    public ClassA()</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public ClassA(ClassB classB)</span><br><span class="line">    &#123;</span><br><span class="line">        this._classB &#x3D; classB;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void SetKeyboard(ClassB classB)</span><br><span class="line">    &#123;</span><br><span class="line">        this._classB &#x3D; classB;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;键盘&#x2F;鼠标 部分</span><br><span class="line">public class ClassB</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;敲打</span><br><span class="line">    public void Clike() &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;使用</span><br><span class="line">public class TestClass </span><br><span class="line">&#123;</span><br><span class="line">    private  ClassA classA &#x3D; new ClassA();</span><br><span class="line"></span><br><span class="line">    private ClassA classA1 &#x3D; new ClassA(new ClassB());</span><br><span class="line">    public void Test() </span><br><span class="line">    &#123;</span><br><span class="line">        classA.SetKeyboard(new ClassB());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1>组合关系-Compostion</h1>
+<blockquote>
+举例:我和我媳妇<br>
+关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！"只不过"整体和部分不可以分开。并且整体和部分共生死。<br>
+典型应用:一个对象作为另一个类的《成员》<br>
+组合形式:通过构造方法"内"或者普通方法"内"直接创建,对象是从内部创建的,不用传递,这点是区别与聚合。<br>
+</blockquote>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;手</span><br><span class="line">public class Person</span><br><span class="line">&#123;</span><br><span class="line">    public Hand hand;</span><br><span class="line"></span><br><span class="line">    public Person()</span><br><span class="line">    &#123;</span><br><span class="line">        this.hand &#x3D; new Hand();&#x2F;&#x2F;代表人出生就有手啊。</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;手</span><br><span class="line">public class Hand</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;扣腚</span><br><span class="line">    public void Coding() &#123; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1>总结</h1>
+<blockquote>
+   【1】依赖:可以使用你，偶然的，用完就丢。<br>
+   【2】关联:需要使用你，长期的，甩不掉。<br>
+   【3】聚合:团队的成员，大家关系比较紧密，但是并不是非你不可。<br>
+   【4】组合:我们是一家，关系非常紧密，谁也不能缺少。<br>
+</blockquote>
+
 ]]></content>
       <categories>
-        <category>ICO容器</category>
+        <category>对象之间六大关系</category>
       </categories>
       <tags>
-        <tag>ICO容器</tag>
+        <tag>对象之间六大关系</tag>
       </tags>
   </entry>
   <entry>
@@ -147,6 +175,43 @@ public class Startup
       </tags>
   </entry>
   <entry>
+    <title>ICO容器-依赖注入</title>
+    <url>/2020/05/27/Dependency/</url>
+    <content><![CDATA[<hr>
+<h1>IOC容器</h1>
+<blockquote>
+IOC是一种编程思想,不局限与任何一种语言,任何语言都可以实现这种思想，它的设计思想是想把创建对象，管理对象生命周期，程序集之间的解耦的工作交给第三方容器来处理。<br>
+<a id="more"></a>
+IOC作用:
+
+<pre><code>1.注册类型,服务注册，将服务（类）以依赖注入的方式，添加到容器里,就是服务注册！
+2.解析实例,比如我们注册了一个A类实例，这个时候我们不需要new了，直接从容器里面请求这个实例</code></pre></blockquote>
+<h1>依赖注入</h1>
+<blockquote>
+我将会以讲故事的形式，给大家来介绍依赖注入和IOC容器。<br>
+故事:假设我家的小宝出生了，这个时候饿了，肯定需要吃东西，对嘛，<br>
+
+<pre><code>你会怎么办了？
+1.叫外卖、去厨房找吃的、冰箱、冲牛奶  （主动）
+2.叫妈妈、叫奶奶 （被动）</code></pre></blockquote>
+<h3>解析:</h3>
+
+<pre><code>这个时候饿了，肯定的情况下，需要食物对嘛？
+1.方案1:我们主动获取食物，是有风险的。(比如并不知道哪些东西能吃的,不符合常理)(主动获取,我们称谓正转)
+2.方案2:被动获取，食物是抽象的，父母给你的，决定安全，且适合你的(被动获取的,我们称谓反转,反转是食物的控制权)</code></pre><h3>说明:</h3>
+
+<pre><code>食物是小宝所依赖的,也是抽象的,把所依赖的对象，反转了，就是控制反转(IOC)。
+食物妈妈做好以后给你，或者喂给你，这个时候就是注入了。
+妈妈就扮演者IOC容器的角色。</code></pre><p>没人在乎你怎样在深夜痛哭，也没人在乎你辗转反侧的要熬几个秋。外人只看结果，自己独撑过程。等我们都明白了这个道理，便不会再在人前矫情，四处诉说以求宽慰。晚安！</p>
+]]></content>
+      <categories>
+        <category>ICO容器</category>
+      </categories>
+      <tags>
+        <tag>ICO容器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OOA、OOD、OOP设计思想</title>
     <url>/2020/07/13/OOADPesign/</url>
     <content><![CDATA[<hr>
@@ -185,130 +250,6 @@ OOD设计思想:面向对象的编程/实现<br>
       </categories>
       <tags>
         <tag>OOA、OOD、OOP设计思想</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>对象之间六大关系</title>
-    <url>/2020/07/13/ObjectRelation/</url>
-    <content><![CDATA[<hr>
-<h1>对象之间六大关系</h1>
-<blockquote>
-对象之间的关系
-   【1】纵向: （树形）继承-->实现 (父类--子类)  接口--->实现
-   【2】横向:  (平行)  由弱到强的关系：依赖-->关联-->聚合-->组合（关系链是我们研究的重点）
-</blockquote>
-<a id="more"></a>
-<h1>依赖关系-Dependence</h1>
-<blockquote>
-关系特点:一个类中,"使用"到了另一个类，这种"使用"是临时的,较弱的关系<br>
-典型应用:一个类作为另一个类中方法的参数,或者这个方法的局部变量<br>
-</blockquote>
-
-<p>   public class ClassA<br>    {<br>        public void Mothod1(ClassB cb)<br>        {<br>            cb.Test();<br>        }<br>        public void Mothod2()<br>        {<br>            ClassB cb = new ClassB();<br>            cb.Test();<br>        }<br>    }<br>    public class ClassB<br>    {<br>        public void Test() { }<br>    }</p>
-<h1>关联关系-Association</h1>
-<blockquote>
-举例:比如客户和订单之间就是一种关联关系。一个对象和另一个对象是有关联的,但是这种关系是客观的关系，而非组成关系。<br>
-关系特点:一个类A中,"使用"到了另一个类B,这种"使用"是长期的,较强的关系。<br>
-典型应用:一个类作为另一个类中"成员"。可以是一对一,一对多,(集合对象)<br>
-组合形式:单向,双向,自关联<br>
-</blockquote>
-
-<pre><code>public class ClassA
-{
-    public ClassB classB;
-}
-
-public class ClassB
-{
-    private List&lt;ClassA&gt; caList;
-    public void Test() { }
-}
-//自关联
-public class ClassC
-{
-    private ClassC classC;
-}</code></pre><h1>聚合关系-Aggregation是关联关系的一种特例</h1>
-<blockquote>
-举例:汽车和发动机？轮胎？/ 电脑和键盘？鼠标....整体与局部的关系<br>
-关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！整体和部分可以分开。<br>
-典型应用:一个对象作为另一个类的《成员》<br>
-组合形式:通过构造方法或者普通方法为成员赋值,对象是从外面创建的,然后传递进来。<br>
-</blockquote>
-
-<pre><code>//电脑 整体
-public class ClassA
-{
-    public ClassB _classB;
-
-    public ClassA()
-    {
-
-    }
-
-    public ClassA(ClassB classB)
-    {
-        this._classB = classB;
-    }
-
-    public void SetKeyboard(ClassB classB)
-    {
-        this._classB = classB;
-    }
-}
-//键盘/鼠标 部分
-public class ClassB
-{
-    //敲打
-    public void Clike() { }
-}
-//使用
-public class TestClass 
-{
-    private  ClassA classA = new ClassA();
-
-    private ClassA classA1 = new ClassA(new ClassB());
-    public void Test() 
-    {
-        classA.SetKeyboard(new ClassB());
-    }
-}</code></pre><h1>组合关系-Compostion</h1>
-<blockquote>
-举例:我和我媳妇<br>
-关系特点:也表示一个对象和另一个对象有关联,但是对象之间是整体和部分的关系！"只不过"整体和部分不可以分开。并且整体和部分共生死。<br>
-典型应用:一个对象作为另一个类的《成员》<br>
-组合形式:通过构造方法"内"或者普通方法"内"直接创建,对象是从内部创建的,不用传递,这点是区别与聚合。<br>
-</blockquote>
-
-<pre><code>//手
-public class Person
-{
-    public Hand hand;
-
-    public Person()
-    {
-        this.hand = new Hand();//代表人出生就有手啊。
-    }
-
-}
-//手
-public class Hand
-{
-    //扣腚
-    public void Coding() { }
-}</code></pre><h1>总结</h1>
-<blockquote>
-   【1】依赖:可以使用你，偶然的，用完就丢。<br>
-   【2】关联:需要使用你，长期的，甩不掉。<br>
-   【3】聚合:团队的成员，大家关系比较紧密，但是并不是非你不可。<br>
-   【4】组合:我们是一家，关系非常紧密，谁也不能缺少。<br>
-</blockquote>
-
-]]></content>
-      <categories>
-        <category>对象之间六大关系</category>
-      </categories>
-      <tags>
-        <tag>对象之间六大关系</tag>
       </tags>
   </entry>
   <entry>
