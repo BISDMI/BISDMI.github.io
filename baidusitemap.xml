@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.sdmi.top/2020/05/27/Dependency/</loc>
+    <lastmod>2020-07-14</lastmod>
+  </url>  <url>
     <loc>https://www.sdmi.top/2020/05/25/NetCore/</loc>
     <lastmod>2020-07-14</lastmod>
   </url>  <url>
@@ -12,8 +15,5 @@
   </url>  <url>
     <loc>https://www.sdmi.top/2020/07/13/OOADPesign/</loc>
     <lastmod>2020-07-13</lastmod>
-  </url>  <url>
-    <loc>https://www.sdmi.top/2020/05/27/Dependency/</loc>
-    <lastmod>2020-05-28</lastmod>
   </url>
 </urlset>
