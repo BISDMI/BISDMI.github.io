@@ -2162,7 +2162,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2d715b;
+  background: #ff83a1;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3255,6 +3255,19 @@ hr {
 .content {
   border-radius: 20px;
   padding: 0px 0px 0px 0px;
+}
+.post-body .btn {
+  position: relative;
+  border: 2px solid #000;
+  border-radius: 2px;
+  padding: 0 10px;
+  font-weight: bold;
+  background: transparent;
+  transition: all 0.5s ease;
+}
+.post-body .btn:hover {
+  background: #000;
+  color: #eee;
 }
 .highlight {
   position: relative;
