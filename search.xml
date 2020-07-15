@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>OOA、OOD、OOP设计思想</title>
+    <url>/2020/07/13/OOADPesign/</url>
+    <content><![CDATA[<hr>
+<h1>OOA面向对象分析</h1>
+<blockquote>
+OOA设计思想:面向对象分析<br>
+   【1】首先要明确你要做什么？<br>
+   【2】做成什么样子？也就是基本的需要分析，明确你要实现的功能。<br>
+   【3】当前市场同行软件有什么参考？比如我们这个，参考的是酷我音乐播放器(UI设计、核心功能的取舍)<br>
+   【4】细化自己的需求(进一步的对需求进行可行性分析)<br>
+   【5】准备开始设计项目<br>
+</blockquote>
+<a id="more"></a>
+<h1>OOD面向对象设计</h1>
+<blockquote>
+OOD设计思想:面向对象设计(UML设计)<br>
+   【1】明确项目类型？一般数据库应用系统？（模式单一）or 工具应用型系统<br>
+   【2】工具型应用软件有哪些特点:<br>
+            1.分析类<br>
+            2.设计类<br>
+            3.组合类<br>
+</blockquote>
+<h1>OOP面向对象编程</h1>
+<blockquote>
+OOP设计思想:面向对象的编程/实现<br>
+【1】对象定义规格的求精过程
+     对于OOA所抽象出来的对象&类以及汇集的分析文档，OOD需要有一个根据设计要求整理和求精的过程，是指更能符合oop的需要。这个整理和求精过程主要有两个方面；一是根据面向对象的概念模型整理分析所确定的对象结构、属性、方法等内容，改正错误的内容，删去不必要和重复的内容等。而是进行分类整理，以便于下一步数据库设计和程序处理模块设计的必要。整理的方法主要是进行归类，对类、对象、属性、方法和结构、主题进行归类。<br>
+【2】数据模型和数据库设计数据模型的设计需要确定类与对象属性的内容,消息连接的方式.系统访问.数据模型的方法等.最后每个对象实例的数据都必须落实到面向对象的库结构模型中.<br>
+【3】优化:<br>
+    OOD的优化设计过程是从另一个角度对分析结果和处理业务过程的整理归纳,优化包括对象和结构的优化,抽象,继承.
+    对象和结构的模块化表示OOD提供了一种范式,这种范式支持对类和结构的模块化.这种模块符合一般模块化所要求的的所有特点,如信息隐蔽性好,内部聚合度强和模块之间耦合度弱等.
+    集成化使得单个构建有机的结合在一起,相互支持.
+</blockquote>]]></content>
+      <categories>
+        <category>OOA、OOD、OOP设计思想</category>
+      </categories>
+      <tags>
+        <tag>OOA、OOD、OOP设计思想</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ICO容器-依赖注入</title>
     <url>/2020/05/27/Dependency/</url>
     <content><![CDATA[<hr>
@@ -71,44 +112,34 @@ IOC作用:
       </tags>
   </entry>
   <entry>
-    <title>OOA、OOD、OOP设计思想</title>
-    <url>/2020/07/13/OOADPesign/</url>
+    <title>.NET Core 初识</title>
+    <url>/2020/05/25/NetCore/</url>
     <content><![CDATA[<hr>
-<h1>OOA面向对象分析</h1>
 <blockquote>
-OOA设计思想:面向对象分析<br>
-   【1】首先要明确你要做什么？<br>
-   【2】做成什么样子？也就是基本的需要分析，明确你要实现的功能。<br>
-   【3】当前市场同行软件有什么参考？比如我们这个，参考的是酷我音乐播放器(UI设计、核心功能的取舍)<br>
-   【4】细化自己的需求(进一步的对需求进行可行性分析)<br>
-   【5】准备开始设计项目<br>
+.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>
+.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>
+.Net Core采用包化的管理方式，增加轻量性。<br>
 </blockquote>
 <a id="more"></a>
-<h1>OOD面向对象设计</h1>
+<h1>ASP.NET Core启动类</h1>
 <blockquote>
-OOD设计思想:面向对象设计(UML设计)<br>
-   【1】明确项目类型？一般数据库应用系统？（模式单一）or 工具应用型系统<br>
-   【2】工具型应用软件有哪些特点:<br>
-            1.分析类<br>
-            2.设计类<br>
-            3.组合类<br>
+现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>
+Program:被称谓主机配置和创建类!<br>
+Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br>
 </blockquote>
-<h1>OOP面向对象编程</h1>
-<blockquote>
-OOP设计思想:面向对象的编程/实现<br>
-【1】对象定义规格的求精过程
-     对于OOA所抽象出来的对象&类以及汇集的分析文档，OOD需要有一个根据设计要求整理和求精的过程，是指更能符合oop的需要。这个整理和求精过程主要有两个方面；一是根据面向对象的概念模型整理分析所确定的对象结构、属性、方法等内容，改正错误的内容，删去不必要和重复的内容等。而是进行分类整理，以便于下一步数据库设计和程序处理模块设计的必要。整理的方法主要是进行归类，对类、对象、属性、方法和结构、主题进行归类。<br>
-【2】数据模型和数据库设计数据模型的设计需要确定类与对象属性的内容,消息连接的方式.系统访问.数据模型的方法等.最后每个对象实例的数据都必须落实到面向对象的库结构模型中.<br>
-【3】优化:<br>
-    OOD的优化设计过程是从另一个角度对分析结果和处理业务过程的整理归纳,优化包括对象和结构的优化,抽象,继承.
-    对象和结构的模块化表示OOD提供了一种范式,这种范式支持对类和结构的模块化.这种模块符合一般模块化所要求的的所有特点,如信息隐蔽性好,内部聚合度强和模块之间耦合度弱等.
-    集成化使得单个构建有机的结合在一起,相互支持.
-</blockquote>]]></content>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;主机配置和创建类</span><br><span class="line">public class Program</span><br><span class="line">&#123; </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;程序入口</span><br><span class="line">    public static void Main(string[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;CreateHostBuilder是配置主机</span><br><span class="line">        &#x2F;&#x2F;Build是创建主机 (.Net Core源码在这里执行了一组委托(创建主机))</span><br><span class="line">        &#x2F;&#x2F;Run运行主机</span><br><span class="line">        CreateHostBuilder(args).Build().Run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;这里为小白补充一下,什么是主机,用来干嘛的</span><br><span class="line">    &#x2F;&#x2F;(主机:负责应用的启动类和生存期管理,配置服务器和请求处理管道,默认设置日志记录,依赖关系的注入和&#x2F;&#x2F;&#x2F;配置,主机是一个封装了应用资源的对象,.Net Core里的一个类(Host))</span><br><span class="line">    &#x2F;&#x2F;配置主机(.Net Core有两种主机,泛型,通用的主机)</span><br><span class="line">    public static IHostBuilder CreateHostBuilder(string[] args) &#x3D;&gt;</span><br><span class="line">      &#x2F;&#x2F;Host 主机静态类里面有一个CreateDefaultBuilder方法,是一个默认的创建主机构建器!</span><br><span class="line">      &#x2F;&#x2F;ConfigureWebHostDefaults:Web主机(他是通用主机的扩展,他提供额外Web功能,支持Http,集成了&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;Kestrel,内置了IIS集成)</span><br><span class="line">      Host.CreateDefaultBuilder(args)</span><br><span class="line">          .ConfigureWebHostDefaults(webBuilder &#x3D;&gt;</span><br><span class="line">          &#123;</span><br><span class="line">              &#x2F;&#x2F;指定ASP.NET Core应用启动类(今天先写到这里,明天继续)</span><br><span class="line">              webBuilder.UseStartup&lt;Startup&gt;();</span><br><span class="line">          &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>[加油,希望能为看的人,带来收获!]  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;ASP.NET Core Web应用的启动类</span><br><span class="line">public class Startup </span><br><span class="line">&#123;</span><br><span class="line">     &#x2F;&#x2F;什么时候执行配置服务,在程序执行完Build()之后,运行主机以前执行配置服务!</span><br><span class="line">     &#x2F;&#x2F;配置服务</span><br><span class="line">     &#x2F;&#x2F;ConfigureServices以依赖注入的方式将服务添加到服务(IOC)容器</span><br><span class="line">     public void ConfigureServices(IServiceCollection services)</span><br><span class="line">     &#123;</span><br><span class="line">          &#x2F;&#x2F;Asp.NET Core内置的服务组件</span><br><span class="line">          &#x2F;&#x2F;添加对控制器和APi相关功能的支持,但是不支持视图和页面(Web Api的模板使用)</span><br><span class="line">          services.AddControllers();</span><br><span class="line">          &#x2F;&#x2F;MVC的默认模板使用的</span><br><span class="line">          services.AddControllersWithViews();</span><br><span class="line">          &#x2F;&#x2F;Web应用程序(Razor)</span><br><span class="line">          services.AddRazorPages();</span><br><span class="line">          &#x2F;&#x2F;这个MVC他是3.0之前的版本,2.x版本使用的</span><br><span class="line">          services.AddMvc(); </span><br><span class="line">          </span><br><span class="line">          &#x2F;&#x2F;以上的都是内置的,也可以添加第三方的服务,方法一致,这里将不过多描述了.</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;服务的生存周期</span><br><span class="line">          &#x2F;&#x2F;请求一个实例(是有生存周期,生存期)</span><br><span class="line">          &#x2F;&#x2F;三种:</span><br><span class="line">          &#x2F;&#x2F;  瞬死:A类控制器依赖B类服务,也给实例出来,如果B类是瞬死的,那梅一次都会生成一个新的实例</span><br><span class="line">          &#x2F;&#x2F;  作用域:每一次有客户请求时,的实例只会请求一次,在这次的请求中,后面的操作还需要这个B类实&#x2F;&#x2F;例,他不会在创建了,把之前的拿过来直接用.</span><br><span class="line">          &#x2F;&#x2F;  单例:整个应用的生命周期，只要是向服务容器请求示例，第一次才会创建，之后都是使用这个。</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;注册服务的使用方式,可以采用构造函数注入的方式使用.</span><br><span class="line">     &#125;</span><br><span class="line">     &#x2F;&#x2F;配置管道</span><br><span class="line">     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)</span><br><span class="line">     &#123;</span><br><span class="line">          &#x2F;&#x2F;如果想知道怎么添加中间件的,什么是终端中间件,怎么自定义中间件,中间件的顺序是怎么样的</span><br><span class="line">          &#x2F;&#x2F;可以加群,有学习文档.或者问群主:群号:782237863</span><br><span class="line">          </span><br><span class="line">          &#x2F;&#x2F;判断是否是开发环境</span><br><span class="line">          if (env.IsDevelopment())</span><br><span class="line">          &#123;</span><br><span class="line">               &#x2F;&#x2F;开发人员异常页面中间件,如果有异常,他会吧异常页面显示出来,且界面友好.</span><br><span class="line">               app.UseDeveloperExceptionPage();</span><br><span class="line">          &#125;</span><br><span class="line">          &#x2F;&#x2F;终端路由中间件</span><br><span class="line">          &#x2F;&#x2F;识别路由，匹配路由和终结点</span><br><span class="line">          app.UseRouting();</span><br><span class="line">          &#x2F;&#x2F;终结点中间件,配置路由和终结点之间的映射关系的</span><br><span class="line">          &#x2F;&#x2F;终结点:可以视为应用程序提供针对HTTP请求的处理器</span><br><span class="line">          &#x2F;&#x2F;MVC应用，终结点就对应着控制器中的某个方法</span><br><span class="line">          app.UseEndpoints(endpoints &#x3D;&gt;</span><br><span class="line">          &#123;</span><br><span class="line">               &#x2F;&#x2F;配置</span><br><span class="line">               endpoints.MapGet(&quot;&#x2F;&quot;, async context &#x3D;&gt;</span><br><span class="line">               &#123;</span><br><span class="line">                  await context.Response.WriteAsync(&quot;Hello World!&quot;);</span><br><span class="line">               &#125;);</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>人生要学会储蓄。你若耕耘，就储存了一次丰收；你若努力，就储存了一个希望；你若微笑，就储存了一份快乐。你能支取什么，取决于你储蓄了什么。没有储存友谊，就无法支取帮助；没有储存学识，就无法支取能力；没有储存汗水，就无法支取成长。想要取之不尽的幸福，要储蓄感恩和付出。晚安！</p>
+]]></content>
       <categories>
-        <category>OOA、OOD、OOP设计思想</category>
+        <category>.NET Core 初识</category>
       </categories>
       <tags>
-        <tag>OOA、OOD、OOP设计思想</tag>
+        <tag>.NET Core 初识</tag>
       </tags>
   </entry>
   <entry>
@@ -173,37 +204,6 @@ OOP设计思想:面向对象的编程/实现<br>
       </categories>
       <tags>
         <tag>对象之间六大关系</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>.NET Core 初识</title>
-    <url>/2020/05/25/NetCore/</url>
-    <content><![CDATA[<hr>
-<blockquote>
-.Net Core是一个开源的,是可以跨平台.跨架构.支持命令行.部署灵活.兼容性强的框架。<br>
-.Net Cree开源的,源码放在Github上面,属于社区开源，不仅仅是微软，社区也会提供支持。<br>
-.Net Core采用包化的管理方式，增加轻量性。<br>
-</blockquote>
-<a id="more"></a>
-<h1>ASP.NET Core启动类</h1>
-<blockquote>
-现在我们来简单介绍一下.Net Core3.1启动程序的两个类!<br>
-Program:被称谓主机配置和创建类!<br>
-Startup:被称谓Asp.Net Core应用的启动类,接下来,我会详细的描述每一组代码的意义和用途.<br>
-</blockquote>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;主机配置和创建类</span><br><span class="line">public class Program</span><br><span class="line">&#123; </span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;程序入口</span><br><span class="line">    public static void Main(string[] args)</span><br><span class="line">    &#123;</span><br><span class="line">        &#x2F;&#x2F;CreateHostBuilder是配置主机</span><br><span class="line">        &#x2F;&#x2F;Build是创建主机 (.Net Core源码在这里执行了一组委托(创建主机))</span><br><span class="line">        &#x2F;&#x2F;Run运行主机</span><br><span class="line">        CreateHostBuilder(args).Build().Run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;这里为小白补充一下,什么是主机,用来干嘛的</span><br><span class="line">    &#x2F;&#x2F;(主机:负责应用的启动类和生存期管理,配置服务器和请求处理管道,默认设置日志记录,依赖关系的注入和&#x2F;&#x2F;&#x2F;配置,主机是一个封装了应用资源的对象,.Net Core里的一个类(Host))</span><br><span class="line">    &#x2F;&#x2F;配置主机(.Net Core有两种主机,泛型,通用的主机)</span><br><span class="line">    public static IHostBuilder CreateHostBuilder(string[] args) &#x3D;&gt;</span><br><span class="line">      &#x2F;&#x2F;Host 主机静态类里面有一个CreateDefaultBuilder方法,是一个默认的创建主机构建器!</span><br><span class="line">      &#x2F;&#x2F;ConfigureWebHostDefaults:Web主机(他是通用主机的扩展,他提供额外Web功能,支持Http,集成了&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;&#x2F;Kestrel,内置了IIS集成)</span><br><span class="line">      Host.CreateDefaultBuilder(args)</span><br><span class="line">          .ConfigureWebHostDefaults(webBuilder &#x3D;&gt;</span><br><span class="line">          &#123;</span><br><span class="line">              &#x2F;&#x2F;指定ASP.NET Core应用启动类(今天先写到这里,明天继续)</span><br><span class="line">              webBuilder.UseStartup&lt;Startup&gt;();</span><br><span class="line">          &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>[加油,希望能为看的人,带来收获!]  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;ASP.NET Core Web应用的启动类</span><br><span class="line">public class Startup </span><br><span class="line">&#123;</span><br><span class="line">     &#x2F;&#x2F;什么时候执行配置服务,在程序执行完Build()之后,运行主机以前执行配置服务!</span><br><span class="line">     &#x2F;&#x2F;配置服务</span><br><span class="line">     &#x2F;&#x2F;ConfigureServices以依赖注入的方式将服务添加到服务(IOC)容器</span><br><span class="line">     public void ConfigureServices(IServiceCollection services)</span><br><span class="line">     &#123;</span><br><span class="line">          &#x2F;&#x2F;Asp.NET Core内置的服务组件</span><br><span class="line">          &#x2F;&#x2F;添加对控制器和APi相关功能的支持,但是不支持视图和页面(Web Api的模板使用)</span><br><span class="line">          services.AddControllers();</span><br><span class="line">          &#x2F;&#x2F;MVC的默认模板使用的</span><br><span class="line">          services.AddControllersWithViews();</span><br><span class="line">          &#x2F;&#x2F;Web应用程序(Razor)</span><br><span class="line">          services.AddRazorPages();</span><br><span class="line">          &#x2F;&#x2F;这个MVC他是3.0之前的版本,2.x版本使用的</span><br><span class="line">          services.AddMvc(); </span><br><span class="line">          </span><br><span class="line">          &#x2F;&#x2F;以上的都是内置的,也可以添加第三方的服务,方法一致,这里将不过多描述了.</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;服务的生存周期</span><br><span class="line">          &#x2F;&#x2F;请求一个实例(是有生存周期,生存期)</span><br><span class="line">          &#x2F;&#x2F;三种:</span><br><span class="line">          &#x2F;&#x2F;  瞬死:A类控制器依赖B类服务,也给实例出来,如果B类是瞬死的,那梅一次都会生成一个新的实例</span><br><span class="line">          &#x2F;&#x2F;  作用域:每一次有客户请求时,的实例只会请求一次,在这次的请求中,后面的操作还需要这个B类实&#x2F;&#x2F;例,他不会在创建了,把之前的拿过来直接用.</span><br><span class="line">          &#x2F;&#x2F;  单例:整个应用的生命周期，只要是向服务容器请求示例，第一次才会创建，之后都是使用这个。</span><br><span class="line"></span><br><span class="line">          &#x2F;&#x2F;注册服务的使用方式,可以采用构造函数注入的方式使用.</span><br><span class="line">     &#125;</span><br><span class="line">     &#x2F;&#x2F;配置管道</span><br><span class="line">     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)</span><br><span class="line">     &#123;</span><br><span class="line">          &#x2F;&#x2F;如果想知道怎么添加中间件的,什么是终端中间件,怎么自定义中间件,中间件的顺序是怎么样的</span><br><span class="line">          &#x2F;&#x2F;可以加群,有学习文档.或者问群主:群号:782237863</span><br><span class="line">          </span><br><span class="line">          &#x2F;&#x2F;判断是否是开发环境</span><br><span class="line">          if (env.IsDevelopment())</span><br><span class="line">          &#123;</span><br><span class="line">               &#x2F;&#x2F;开发人员异常页面中间件,如果有异常,他会吧异常页面显示出来,且界面友好.</span><br><span class="line">               app.UseDeveloperExceptionPage();</span><br><span class="line">          &#125;</span><br><span class="line">          &#x2F;&#x2F;终端路由中间件</span><br><span class="line">          &#x2F;&#x2F;识别路由，匹配路由和终结点</span><br><span class="line">          app.UseRouting();</span><br><span class="line">          &#x2F;&#x2F;终结点中间件,配置路由和终结点之间的映射关系的</span><br><span class="line">          &#x2F;&#x2F;终结点:可以视为应用程序提供针对HTTP请求的处理器</span><br><span class="line">          &#x2F;&#x2F;MVC应用，终结点就对应着控制器中的某个方法</span><br><span class="line">          app.UseEndpoints(endpoints &#x3D;&gt;</span><br><span class="line">          &#123;</span><br><span class="line">               &#x2F;&#x2F;配置</span><br><span class="line">               endpoints.MapGet(&quot;&#x2F;&quot;, async context &#x3D;&gt;</span><br><span class="line">               &#123;</span><br><span class="line">                  await context.Response.WriteAsync(&quot;Hello World!&quot;);</span><br><span class="line">               &#125;);</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>人生要学会储蓄。你若耕耘，就储存了一次丰收；你若努力，就储存了一个希望；你若微笑，就储存了一份快乐。你能支取什么，取决于你储蓄了什么。没有储存友谊，就无法支取帮助；没有储存学识，就无法支取能力；没有储存汗水，就无法支取成长。想要取之不尽的幸福，要储蓄感恩和付出。晚安！</p>
-]]></content>
-      <categories>
-        <category>.NET Core 初识</category>
-      </categories>
-      <tags>
-        <tag>.NET Core 初识</tag>
       </tags>
   </entry>
   <entry>
